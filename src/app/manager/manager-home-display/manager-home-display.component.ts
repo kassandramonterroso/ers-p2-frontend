@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-manager-home-display',
+  selector: 'manager-home-display',
   templateUrl: './manager-home-display.component.html',
   styleUrls: ['./manager-home-display.component.css']
 })
