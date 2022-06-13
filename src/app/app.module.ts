@@ -17,6 +17,9 @@ import { ViewAllRequestsComponent } from './manager/view-all-requests/view-all-r
 import { LoginComponent } from './users/login/login.component';
 import { LogoutComponent } from './users/logout/logout.component';
 
+import { FormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,10 +36,12 @@ import { LogoutComponent } from './users/logout/logout.component';
     ViewAllRequestsComponent,
     LoginComponent,
     LogoutComponent
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

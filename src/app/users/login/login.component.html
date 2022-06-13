@@ -1,1 +1,30 @@
-<p>login works!</p>
+<title>ERS</title>
+        <link rel="stylesheet" href="login.component.css">
+        <body>
+            <div class="loginbox">
+                <img class="img-fluid" src="expense-reimbursement-pic.jpg" alt="EXPENSES LOGO" width="50" height="50">
+                <h1>Expense  Reimbursement  System</h1>
+                <form>
+                    <p>Username</p>
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    id="userNameId" 
+                    placeholder="Enter your username" 
+                    name="userName"
+                    [(ngModel)]="user.userName" 
+                    required 
+                    #userNameId="ngModel">
+                    <p>Password</p>
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    id="passwordId" 
+                    placeholder="Enter your Password" 
+                    name="userName"
+                    [(ngModel)]="user.password" 
+                    required 
+                    #userNameId="ngModel">
+                    <button type="button" (click)="login()">Login</button>
+                </form>
+            </div>
