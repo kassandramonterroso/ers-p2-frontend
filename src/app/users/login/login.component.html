@@ -12,7 +12,7 @@
                     id="userNameId" 
                     placeholder="Enter your username" 
                     name="userName"
-                    [(ngModel)]="user.userName" 
+                    [(ngModel)]="user.empUserName" 
                     required 
                     #userNameId="ngModel">
                     <p>Password</p>
@@ -22,7 +22,7 @@
                     id="passwordId" 
                     placeholder="Enter your Password" 
                     name="userName"
-                    [(ngModel)]="user.password" 
+                    [(ngModel)]="user.empHashedPassword" 
                     required 
                     #userNameId="ngModel">
                     <button type="button" (click)="login()">Login</button>
