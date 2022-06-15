@@ -15,6 +15,7 @@ export class AuthService {
     sessionStorage.setItem("userInformation", JSON.stringify(user));
   }
 
+
   retreiveUserInfo(): User{
     let blankUserData: User = {
     empId: 0,
@@ -29,6 +30,7 @@ export class AuthService {
 }
 
     let userData: any = sessionStorage.getItem("userInformation");
+    console.log(userData);
     if(userData!=null){
       return JSON.parse(userData);
     }

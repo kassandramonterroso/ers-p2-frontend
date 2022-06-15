@@ -3,9 +3,10 @@
         <body>
             <div class="text-danger">{{ invalidMessage }}</div>
             <div class="loginbox">
-                <img class="img-fluid" src="ERS-Logo.jpg" alt="EXPENSES LOGO" width="50" height="50">
+                <img class="img-fluid" src="expense-reimbursement-pic.jpg" alt="EXPENSES LOGO" width="50" height="50">
                 <h1>Expense  Reimbursement  System</h1>
-                <form>
+                <div class="text-danger">{{ message }}</div>
+                <form #myForm="ngForm">
                     <p>Username</p>
                     <input 
                     type="text" 
@@ -16,16 +17,23 @@
                     [(ngModel)]="user.empUserName" 
                     required 
                     #userNameId="ngModel">
+                    <div *ngIf="!userNameId.valid && userNameId.touched" class="text-danger small" >
+                        User name is required!
+                    </div>
                     <p>Password</p>
                     <input 
                     type="text" 
                     class="form-control" 
                     id="passwordId" 
                     placeholder="Enter your Password" 
-                    name="userName"
+                    name="password"
                     [(ngModel)]="user.empHashedPassword" 
                     required 
-                    #userNameId="ngModel">
-                    <button type="button" (click)="login()">Login</button>
+                    #passwordId="ngModel">
+                    <div *ngIf="!passwordId.valid && passwordId.touched" class="text-danger small" >
+                       Password is required!
+                    </div>
+                    <button type="button" class="btn btn-warning" (click)="login()"
+                        [disabled]="!myForm.valid">Login</button>
                 </form>
             </div>
