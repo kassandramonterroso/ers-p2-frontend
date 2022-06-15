@@ -20,17 +20,7 @@ export class LoginComponent implements OnInit {
       role: ''
     }
   }
-  testUser:User =  {
-    empId: 0,
-    empFirstName: '',
-    empLastName: '',
-    empUserName: '',
-    empHashedPassword: '',
-    rolesPojo: {
-      roleId: 0,
-      role: ''
-    }
-  }
+  message : string = "";
   constructor(private authService: AuthService,private router:Router, private userService: UserServiceService) { }
 
   ngOnInit(): void {
@@ -43,7 +33,7 @@ export class LoginComponent implements OnInit {
         this.authService.isLoggedIn = true;
         this.router.navigate(['employee-home-display'])
       }else{
-        console.log("invalid")
+        this.message = "invalid credentials"
       }
       
     
