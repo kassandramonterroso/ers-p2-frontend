@@ -16,7 +16,7 @@ import { ViewAllResolvedRequestsComponent } from './manager/view-all-resolved-re
 import { ViewAllRequestsComponent } from './manager/view-all-requests/view-all-requests.component';
 import { LoginComponent } from './users/login/login.component';
 import { LogoutComponent } from './users/logout/logout.component';
-
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 
@@ -41,7 +41,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

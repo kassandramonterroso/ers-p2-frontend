@@ -1,6 +1,7 @@
 <title>ERS</title>
         <link rel="stylesheet" href="login.component.css">
         <body>
+            <div class="text-danger">{{ invalidMessage }}</div>
             <div class="loginbox">
                 <img class="img-fluid" src="ERS-Logo.jpg" alt="EXPENSES LOGO" width="50" height="50">
                 <h1>Expense  Reimbursement  System</h1>
@@ -12,7 +13,7 @@
                     id="userNameId" 
                     placeholder="Enter your username" 
                     name="userName"
-                    [(ngModel)]="user.userName" 
+                    [(ngModel)]="user.empUserName" 
                     required 
                     #userNameId="ngModel">
                     <p>Password</p>
@@ -22,7 +23,7 @@
                     id="passwordId" 
                     placeholder="Enter your Password" 
                     name="userName"
-                    [(ngModel)]="user.password" 
+                    [(ngModel)]="user.empHashedPassword" 
                     required 
                     #userNameId="ngModel">
                     <button type="button" (click)="login()">Login</button>

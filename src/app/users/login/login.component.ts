@@ -2,33 +2,71 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { UserServiceService } from '../user-service.service';
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  invalidMessage: string = "";
+
   user: User ={
-    userName: '',
-    password: '',
+    empId: 0,
+    empFirstName: '',
+    empLastName: '',
+    empUserName: '',
+    empHashedPassword: '',
+    rolesPojo: {
+      roleId: 0,
+      role: ''
+    }
   }
   testUser:User =  {
-    userName: 'cat',
-    password:'cat'
+    empId: 0,
+    empFirstName: '',
+    empLastName: '',
+    empUserName: '',
+    empHashedPassword: '',
+    rolesPojo: {
+      roleId: 0,
+      role: ''
+    }
   }
-  constructor(private authService: AuthService,private router:Router) { }
+  constructor(private authService: AuthService,private router:Router, private userService: UserServiceService) { }
 
   ngOnInit(): void {
   }
   login(){
-    if (this.user.userName == this.testUser.userName && this.user.password == this.testUser.password){
-      this.authService.storeUserInfo(this.user);
-      this.authService.isLoggedIn = true;
-      this.router.navigate(['employee-home-display'])
-    }else{
-      console.log("invalid")
-    }
+    this.userService.checkUser(this.user).subscribe((response)=>{
+      console.log(response);
+      if(response.rolesPojo.role != "" ){
+      
+        this.authService.storeUserInfo(response);
+       
+        this.authService.isLoggedIn = true;
+
+        if(response.rolesPojo.role == "manager"){
+            
+            this.authService.role="manager";
+            
+            this.router.navigate(['manager-home-display']);
+        }else if(response.rolesPojo.role == "employee"){
+            
+            this.authService.role="employee";
+            
+            this.router.navigate(['employee-home-display']);
+        }
+      }else{
+        
+        this.invalidMessage = "Invalid Username/Password";
+      }
     
+    
+    });
+    
+  
   }
 
 }
