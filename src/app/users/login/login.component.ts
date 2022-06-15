@@ -9,6 +9,9 @@ import { UserServiceService } from '../user-service.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  invalidMessage: string = "";
+
   user: User ={
     empId: 0,
     empFirstName: '',
@@ -35,7 +38,28 @@ export class LoginComponent implements OnInit {
       }else{
         this.message = "invalid credentials"
       }
+      if(response.rolesPojo.role != "" ){
       
+        this.authService.storeUserInfo(response);
+       
+        this.authService.isLoggedIn = true;
+
+        if(response.rolesPojo.role == "manager"){
+            
+            this.authService.role="manager";
+            
+            this.router.navigate(['manager-home-display']);
+        }else if(response.rolesPojo.role == "employee"){
+            
+            this.authService.role="employee";
+            
+            this.router.navigate(['employee-home-display']);
+        }
+      }else{
+        
+        this.invalidMessage = "Invalid Username/Password";
+      }
+    
     
     });
     

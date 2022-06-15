@@ -1,6 +1,7 @@
 <title>ERS</title>
         <link rel="stylesheet" href="login.component.css">
         <body>
+            <div class="text-danger">{{ invalidMessage }}</div>
             <div class="loginbox">
                 <img class="img-fluid" src="expense-reimbursement-pic.jpg" alt="EXPENSES LOGO" width="50" height="50">
                 <h1>Expense  Reimbursement  System</h1>
@@ -28,10 +29,10 @@
                     name="password"
                     [(ngModel)]="user.empHashedPassword" 
                     required 
-                    #userNameId="ngModel">
-                    <!-- <div *ngIf="!passwordId.valid && passwordId.touched" class="text-danger small" >
+                    #passwordId="ngModel">
+                    <div *ngIf="!passwordId.valid && passwordId.touched" class="text-danger small" >
                        Password is required!
-                    </div> -->
+                    </div>
                     <button type="button" class="btn btn-warning" (click)="login()"
                         [disabled]="!myForm.valid">Login</button>
                 </form>

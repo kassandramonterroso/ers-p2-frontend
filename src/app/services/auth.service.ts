@@ -7,7 +7,7 @@ export class AuthService {
 
   isLoggedIn: boolean = false;
 
- 
+  role: string = "";
 
   constructor() { }
 
@@ -15,11 +15,26 @@ export class AuthService {
     sessionStorage.setItem("userInformation", JSON.stringify(user));
   }
 
-  retreiveUserInfo(): void{
+
+  retreiveUserInfo(): User{
+    let blankUserData: User = {
+    empId: 0,
+    empFirstName: "",
+    empLastName: "",
+    empUserName: "",
+    empHashedPassword: "",
+    rolesPojo:{
+        roleId: 0,
+        role: ""
+    }
+}
+
     let userData: any = sessionStorage.getItem("userInformation");
+    console.log(userData);
     if(userData!=null){
       return JSON.parse(userData);
     }
+    return blankUserData;
   }
 
   removeUserInfo(): void{
