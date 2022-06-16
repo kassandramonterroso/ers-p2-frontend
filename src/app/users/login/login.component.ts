@@ -28,16 +28,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  login(){
+  login(): void{
     this.userService.checkUser(this.user).subscribe((response)=>{
-      console.log(response);
-      if (response.empId){
-        this.authService.storeUserInfo(response);
-        this.authService.isLoggedIn = true;
-        this.router.navigate(['employee-home-display'])
-      }else{
-        this.message = "invalid credentials"
-      }
       if(response.rolesPojo.role != "" ){
       
         this.authService.storeUserInfo(response);
@@ -50,7 +42,9 @@ export class LoginComponent implements OnInit {
             
             this.router.navigate(['manager-home-display']);
         }else if(response.rolesPojo.role == "employee"){
-            
+          this.authService.storeUserInfo(response);
+       
+          this.authService.isLoggedIn = true;
             this.authService.role="employee";
             
             this.router.navigate(['employee-home-display']);
@@ -61,6 +55,9 @@ export class LoginComponent implements OnInit {
       }
     
     
+    }, (err)=>{
+
+     this.message = err.error.error;
     });
     
   
