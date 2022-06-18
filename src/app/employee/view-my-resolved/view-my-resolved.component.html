@@ -1,1 +1,22 @@
-<p>view-my-resolved works!</p>
+<employee-home-display></employee-home-display>
+<h2>My resolved Requests</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Reimbursement ID</th>
+                        <th>Requested Reimbursement Amount</th>
+                        <th>Reimbursement Status</th>
+                        <th>Aprroved by: First Name</th>
+                        <th>Approved by: Last Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let requests of allMyResolvedRequests">
+                        <td>{{ requests.reimbId }} </td>
+                        <td>{{ requests.reimbAmt }}</td>
+                        <td>{{ requests.statusPojo.status }}</td>
+                        <td>{{ requests.approver.empFirstName }}</td>
+                        <td>{{ requests.approver.empLastName }}</td>
+                    </tr>
+                </tbody>
+            </table>

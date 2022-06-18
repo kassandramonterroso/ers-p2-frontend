@@ -1,1 +1,99 @@
-<p>view-my-account works!</p>
+<employee-home-display></employee-home-display>
+
+<div class="container mt-3">
+    <div class="card" style="width:400px">
+      <img class="card-img-top" src="assets/img_avatar1.png" alt="Card image" style="width:100%">
+      <div class="card-body">
+        <h4 class="card-title">{{ myData.empFirstName }} {{ myData.empLastName }}</h4>
+        <ul class="list-group">
+            <li class="list-group-item">Employee ID: {{ myData.empId }}</li>
+            <li class="list-group-item">Username: {{ myData.empUserName }}</li>
+            <li class="list-group-item">Password: {{ myData.empHashedPassword }}</li>
+            <li class="list-group-item">Role: {{ myData.rolesPojo.role }}</li>
+        </ul>
+        <a class="btn btn-primary" (click)="displayRequestForm()">Edit Profile</a>
+      </div>
+    </div>
+</div>
+
+<div *ngIf="shouldDisplay" class="container">
+    <form #myForm="ngForm">
+     <div class="card m-3">
+       <div class="card-header bg-primary">EMPLOYEE UPDATE FORM</div>
+       <div class="card-body">
+        <div class="mb-3 mt-3">
+            EMPLOYEE ID : {{ updateEmployee.empId }}
+        </div>
+           <div class="mb-3 mt-3">
+               <label for="eFirstName" class="form-label">Employee First Name:</label>
+               <input 
+                   type="text" 
+                   class="form-control" 
+                   id="eFirstName" 
+                   placeholder="Enter First Name" 
+                   name="eFirstName"
+                   [(ngModel)]="updateEmployee.empFirstName"
+                   required
+                   minlength="2"
+                   maxlength="200"
+                   #emFirstName="ngModel">
+                <div *ngIf="!emFirstName.valid" class="text-danger small">
+                    First Name is required!
+                </div>
+           </div>
+           <div class="mb-3">
+               <label for="eLastName" class="form-label">Employee Last Name:</label>
+               <input 
+                   type="text" 
+                   class="form-control" 
+                   id="eLastName" 
+                   placeholder="Enter Last Name" 
+                   name="eLastName"
+                   required
+                   #emLastName="ngModel"
+                   [(ngModel)]="updateEmployee.empLastName">
+                <div *ngIf="!emLastName.valid" class="text-danger small">
+                    Last Name is required!
+                </div>
+           </div>
+           <div class="mb-3">
+               <label for="eUserName" class="form-label">Employee Username:</label>
+               <input 
+                   type="text" 
+                   class="form-control" 
+                   id="eUserName" 
+                   placeholder="Enter User Name" 
+                   name="eUserName"
+                   #emUserName="ngModel"
+                   [(ngModel)]="updateEmployee.empUserName"
+                   required>
+                <div *ngIf="!emUserName.valid" class="text-danger small">
+                    Username is required!
+                </div>
+           </div>
+           <div class="mb-3">
+               <label for="ePassword" class="form-label">Employee Password:</label>
+               <input 
+                   type="text" 
+                   class="form-control" 
+                   id="ePassword" 
+                   placeholder="Enter book cost" 
+                   name="ePassword"
+                   #emPassword="ngModel"
+                   [(ngModel)]="updateEmployee.empHashedPassword"
+                   required>
+                <div *ngIf="!emPassword.valid" class="text-danger small">
+                    Password is required!
+                </div>
+           </div>
+        </div>
+       <div class="card-footer bg-primary">
+           <button 
+               type="button" 
+               class="btn btn-warning" 
+               (click)="updateEmployeeInfo()"
+               [disabled]="!myForm.valid">Update My Account</button>
+       </div>
+     </div>
+    </form>
+   </div>

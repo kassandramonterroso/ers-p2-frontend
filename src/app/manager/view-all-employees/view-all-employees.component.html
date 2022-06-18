@@ -1,3 +1,4 @@
+<manager-home-display></manager-home-display>
 <div class="container">
     <div class="row mt-5">
         <div class="col-2">
@@ -10,8 +11,8 @@
                         <td>ID</td>
                         <td>FIRST NAME</td>
                         <td>LAST NAME</td>
-                        <td></td>
-                        <td></td>
+                        <td>ROLE</td>
+                        <td>VIEW REQUESTS BY THIS EMPLOYEE</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -19,6 +20,14 @@
                        <td>{{ employee.empId }}</td> 
                        <td>{{ employee.empFirstName | uppercase }}</td> 
                        <td>{{ employee.empLastName | uppercase}}</td> 
+                       <td>{{ employee.rolesPojo.role }}</td>
+                       <td>
+                        <button
+                            type="button" 
+                            class="btn btn-info"
+                            (click)="goToViewByRequester(employee.empId)">view
+                        </button>
+                   </td>
                     </tr>
                 </tbody>
             </table>

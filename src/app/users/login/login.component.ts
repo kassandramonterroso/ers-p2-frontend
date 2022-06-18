@@ -46,12 +46,12 @@ export class LoginComponent implements OnInit {
 
         if(response.rolesPojo.role == "manager"){
             
-            this.authService.role="manager";
+            
             
             this.router.navigate(['manager-home-display']);
         }else if(response.rolesPojo.role == "employee"){
             
-            this.authService.role="employee";
+            
             
             this.router.navigate(['employee-home-display']);
         }

@@ -1,1 +1,52 @@
-<p>submit-request works!</p>
+<employee-home-display></employee-home-display>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-2">
+        </div>
+        <div class="col-8">
+            <button type="button" class="btn btn-success" (click)="displayRequestForm()">Make A Request</button>
+            <div *ngIf="shouldDisplay">
+                <div class="container">
+                    <form>
+                        <div class="card m-3">
+                            <div class="card-header bg-warning">REQUEST FORM</div>
+                            <div class="card-body">
+                                <div>Employee Id: {{ requesterId }}</div>
+                                <div class="mb-3">
+                                    <label for="rAmt" class="form-label">AMOUNT:</label>
+                                    <input type="number" class="form-control" id="rAmt" placeholder="Enter request amount"
+                                        name="reimbAmt" [(ngModel)]="newReimb.reimbAmt">
+                                </div>
+                                
+                            </div>
+                            <div class="card-footer bg-warning">
+                                <button type="button" class="btn btn-success" (click)="submitRequest()">Submit Request</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <h2>My Current Pending Requests</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>Reimbursement ID</td>
+                        <td>Reimbursement Amount</td>
+                        <td>Reimbursement Status</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let reimb of currentAllReimb">
+                        <td>{{ reimb.reimbId }}</td>
+                        <td>{{ reimb.reimbAmt }}</td>
+                        <td>{{ reimb.statusPojo.status}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col-2">
+        </div>
+    </div>
+</div>

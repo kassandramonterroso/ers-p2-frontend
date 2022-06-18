@@ -18,6 +18,7 @@ import { LoginComponent } from './users/login/login.component';
 import { LogoutComponent } from './users/logout/logout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ViewAllRequestsByRequesterComponent } from './manager/view-all-requests-by-requester/view-all-requests-by-requester.component'
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { FormsModule } from '@angular/forms';
     ViewAllResolvedRequestsComponent,
     ViewAllRequestsComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    ViewAllRequestsByRequesterComponent,
 
   ],
   imports: [

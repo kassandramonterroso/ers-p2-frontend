@@ -1,1 +1,18 @@
-<p>view-my-pending works!</p>
+<employee-home-display></employee-home-display>
+<h2>My pending requests</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Reimbursement ID</th>
+                        <th>Requested Reimbursement Amount</th>
+                        <th>Reimbursement Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let requests of allMyPendingRequests">
+                        <td>{{ requests.reimbId }} </td>
+                        <td>{{ requests.reimbAmt }}</td>
+                        <td>{{ requests.statusPojo.status }}</td>
+                    </tr>
+                </tbody>
+            </table>
