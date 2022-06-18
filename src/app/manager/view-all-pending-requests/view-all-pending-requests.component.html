@@ -1,22 +1,32 @@
-<div class="container mt-3">          
-    <table class="table table-hover">
-      <thead class="w3-metro-dark-blue">
-        <tr>
-          <th>Employee ID</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Request ID</th>
-          <th>Reimbursement Amount</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="w3-hover-blue">
-          <td >John</td>
-          <td>Doe</td>
-          <td>john@example.com</td>
-          <td>Pending</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<manager-home-display></manager-home-display>
+<h2>View All Pending Requests</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Requested by: First Name</th>
+                        <th>Requested by: Last Name</th>
+                        <th>Reimbursement ID</th>
+                        <th>Requested Reimbursement Amount</th>
+                        <th>Reimbursement Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let requests of allPendingRequests">
+                        <td>{{ requests.requester.empId }}</td>
+                        <td>{{ requests.requester.empFirstName }}</td>
+                        <td>{{ requests.requester.empLastName }}</td>
+                        <td>{{ requests.reimbId }} </td>
+                        <td>{{ requests.reimbAmt }}</td>
+                        <td>{{ requests.statusPojo.status }}</td>
+                        <td><button 
+                          type="button" 
+                          class="btn btn-primary"
+                          (click)="approveRequest(requests.reimbId)">approve</button></td>
+                        <td><button 
+                          type="button" 
+                          class="btn btn-danger"
+                          (click)="rejectRequest(requests.reimbId)">reject</button></td>
+                    </tr>
+                </tbody>
+            </table>

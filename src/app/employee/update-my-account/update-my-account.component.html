@@ -1,3 +1,4 @@
+<employee-home-display></employee-home-display>
 <div class="container">
     <form #myForm="ngForm">
      <div class="card m-3">
@@ -18,8 +19,7 @@
                    required
                    minlength="2"
                    maxlength="200"
-                   #emFirstName="ngModel"
-                   (change)="logTheChanges(myForm)">
+                   #emFirstName="ngModel">
                 <div *ngIf="!emFirstName.valid" class="text-danger small">
                     First Name is required!
                 </div>
@@ -51,7 +51,7 @@
                    [(ngModel)]="updateEmployee.empUserName"
                    required>
                 <div *ngIf="!emUserName.valid" class="text-danger small">
-                    Book Genre is required!
+                    Username is required!
                 </div>
            </div>
            <div class="mb-3">

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Employee } from 'src/app/employee/employee.model';
+import { Employee } from 'src/app/employee.model';
 import { EmployeeServiceService } from 'src/app/services/employee-service.service';
 
 @Component({
@@ -20,7 +20,10 @@ export class ViewAllEmployeesComponent implements OnInit {
     empLastName: '',
     empUserName: '',
     empHashedPassword: '',
-    empRoleId: 0
+    rolesPojo: {
+      roleId: 0,
+      role: ""
+}
   };
 
   constructor(private employeeService: EmployeeServiceService,
@@ -29,7 +32,6 @@ export class ViewAllEmployeesComponent implements OnInit {
                }
 
   ngOnInit(): void {
-
     this.loadData();
   }
 
@@ -39,5 +41,10 @@ export class ViewAllEmployeesComponent implements OnInit {
       this.currentAllEmployees = response;
     })
   }
+
+  goToViewByRequester(requesterid: number){
+    this.router.navigate(['view-all-requests-by-requester',requesterid]); 
+  }
+
 
 }

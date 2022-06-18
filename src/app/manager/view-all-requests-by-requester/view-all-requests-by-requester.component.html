@@ -1,0 +1,28 @@
+<manager-home-display></manager-home-display>
+<h2>View All Requests By Employee</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Requested by: First Name</th>
+                        <th>Requested by: Last Name</th>
+                        <th>Reimbursement ID</th>
+                        <th>Requested Reimbursement Amount</th>
+                        <th>Reimbursement Status</th>
+                        <th>Aprroved by: First Name</th>
+                        <th>Approved by: Last Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let requests of currentAllRequestsByRequester">
+                        <td>{{ requests.requester.empId }}</td>
+                        <td>{{ requests.requester.empFirstName }}</td>
+                        <td>{{ requests.requester.empLastName }}</td>
+                        <td>{{ requests.reimbId }} </td>
+                        <td>{{ requests.reimbAmt }}</td>
+                        <td>{{ requests.statusPojo.status }}</td>
+                        <td>{{ requests.approver.empFirstName }}</td>
+                        <td>{{ requests.approver.empLastName }}</td>
+                    </tr>
+                </tbody>
+            </table>

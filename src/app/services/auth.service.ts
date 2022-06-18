@@ -7,8 +7,6 @@ export class AuthService {
 
   isLoggedIn: boolean = false;
 
-  role: string = "";
-
   constructor() { }
 
   storeUserInfo(user: User): void{

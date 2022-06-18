@@ -37,15 +37,9 @@ export class LoginComponent implements OnInit {
         this.authService.isLoggedIn = true;
 
         if(response.rolesPojo.role == "manager"){
-            
-            this.authService.role="manager";
-            
+           
             this.router.navigate(['manager-home-display']);
         }else if(response.rolesPojo.role == "employee"){
-          this.authService.storeUserInfo(response);
-       
-          this.authService.isLoggedIn = true;
-            this.authService.role="employee";
             
             this.router.navigate(['employee-home-display']);
         }

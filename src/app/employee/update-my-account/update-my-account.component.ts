@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from 'src/app/employee/employee.model';
+import { Employee } from 'src/app/employee.model';
 import { EmployeeServiceService } from 'src/app/services/employee-service.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/users/user.model';
 
 
 
@@ -18,40 +20,30 @@ export class UpdateMyAccountComponent implements OnInit {
     empLastName: '',
     empUserName: '',
     empHashedPassword: '',
-    empRoleId: 0
+    rolesPojo: {
+      roleId: 0,
+      role: ""
+}
   }
 
-  // injecting ActivatedRoute in the constructor to retreive a route parameter
-  constructor(private activatedRoute: ActivatedRoute, 
-              private employeeService: EmployeeServiceService,
-              private router: Router) { }
+  myData: User = this.authService.retreiveUserInfo();
+  eid: any = this.myData.empId;
+
+  constructor(private employeeService: EmployeeServiceService,
+              private router: Router,
+              private authService: AuthService) { }
 
   ngOnInit(): void {
-    // this is the right place to retrieve the route parameter - bid from the route path
-    // and send the retrived bid to service layer and fetch the book object
-
-    // to retreive the route parameter we need the api ActivatedRoute
-    // so ActivatedRoute has to be injected into this component
-    let eidParam = this.activatedRoute.snapshot.paramMap.get('eid');
-    console.log(eidParam);
-
-    // now send the eidParam to the service layer and fetch the book object
-    // and assign it to updateEmployee which is 2 way bound to the the template
-    this.employeeService.getEmployee(eidParam).subscribe((response)=>{
-      // we have to assign this response to updateBook object
+    this.employeeService.getEmployee(this.eid).subscribe((response)=>{
       this.updateEmployee = response;
     })
-
   }
 
   updateEmployeeInfo(){
     this.employeeService.updateEmployee(this.updateEmployee).subscribe((response)=>{
-      this.router.navigate(['view-my-account']);
+      this.router.navigate(['login']);
     });
   }
 
-  logTheChanges(title: any){
-    console.log(title);
-  }
 
 }
