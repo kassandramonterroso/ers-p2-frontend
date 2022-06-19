@@ -14,7 +14,7 @@
                     <tr *ngFor="let requests of allMyResolvedRequests">
                         <td>{{ requests.reimbId }} </td>
                         <td>{{ requests.reimbAmt }}</td>
-                        <td>{{ requests.statusPojo.status }}</td>
+                        <td>{{ requests.status.status }}</td>
                         <td>{{ requests.approver.empFirstName }}</td>
                         <td>{{ requests.approver.empLastName }}</td>
                     </tr>

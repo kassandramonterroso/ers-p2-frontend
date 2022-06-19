@@ -4,7 +4,7 @@ export interface User{
     empLastName: string,
     empUserName: string,
     empHashedPassword: string,
-    rolesPojo: {
+    roles: {
         roleId: number,
         role: string
 }}

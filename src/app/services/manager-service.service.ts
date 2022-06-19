@@ -9,28 +9,28 @@ import { SendUpdateRequest } from '../SendUpdateRequest.model';
 })
 export class ManagerServiceService {
 
-  baseUrl: string = "http://localhost:7474";
+  baseUrl: string = "http://localhost:7474/api/";
 
   constructor(private http: HttpClient) { }
 
   getAllRequests(): Observable<Reimbursement[]>{
-    return this.http.get<Reimbursement[]>(this.baseUrl+'/reimbursement');
+    return this.http.get<Reimbursement[]>(this.baseUrl+'reimbursement');
   }
 
   getAllRequestsByRequester(requesterid: number): Observable<Reimbursement[]>{
-    return this.http.get<Reimbursement[]>(this.baseUrl+'/reimbursement/'+requesterid);
+    return this.http.get<Reimbursement[]>(this.baseUrl+'reimbursement/'+requesterid);
   }
 
   getAllPending():Observable<Reimbursement[]>{
-    return this.http.get<Reimbursement[]>(this.baseUrl+'/allPending');
+    return this.http.get<Reimbursement[]>(this.baseUrl+'allPending');
   }
 
   getAllResolved():Observable<Reimbursement[]>{
-    return this.http.get<Reimbursement[]>(this.baseUrl+'/allResolved');
+    return this.http.get<Reimbursement[]>(this.baseUrl+'allResolved');
   }
 
   updateRequest(sentUpdate: SendUpdateRequest):Observable<SendUpdateRequest>{
     console.log(sentUpdate)
-    return this.http.put<SendUpdateRequest>(this.baseUrl+'/updateRequest', sentUpdate);
+    return this.http.put<SendUpdateRequest>(this.baseUrl+'updateRequest', sentUpdate);
   }
 }

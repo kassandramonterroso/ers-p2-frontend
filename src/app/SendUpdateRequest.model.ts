@@ -1,7 +1,7 @@
 export interface SendUpdateRequest{
     
     reimbId: number,
-    statusPojo:{
+    status:{
         statusId: number
     },
     approver: {

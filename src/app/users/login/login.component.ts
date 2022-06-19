@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     empLastName: '',
     empUserName: '',
     empHashedPassword: '',
-    rolesPojo: {
+    roles: {
       roleId: 0,
       role: ''
     }
@@ -38,18 +38,18 @@ export class LoginComponent implements OnInit {
       }else{
         this.message = "invalid credentials"
       }
-      if(response.rolesPojo.role != "" ){
+      if(response.roles.role != "" ){
       
         this.authService.storeUserInfo(response);
        
         this.authService.isLoggedIn = true;
 
-        if(response.rolesPojo.role == "manager"){
+        if(response.roles.role == "manager"){
             
             
             
             this.router.navigate(['manager-home-display']);
-        }else if(response.rolesPojo.role == "employee"){
+        }else if(response.roles.role == "employee"){
             
             
             

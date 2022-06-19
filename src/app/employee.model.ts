@@ -6,7 +6,7 @@ export interface Employee{
     empLastName: string,
     empUserName: string,
     empHashedPassword: string,
-    rolesPojo: {
+    roles: {
         roleId: number,
         role: string
 }}

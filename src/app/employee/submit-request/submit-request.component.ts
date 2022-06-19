@@ -23,7 +23,7 @@ export class SubmitRequestComponent implements OnInit {
     requester: {
         empId: 0,
     },
-    statusPojo:{
+    status:{
       statusId: 1
   }
   }
@@ -70,7 +70,7 @@ export class SubmitRequestComponent implements OnInit {
         requester: {
             empId: 0,
         },
-        statusPojo:{
+        status:{
           statusId: 0
       }
       };

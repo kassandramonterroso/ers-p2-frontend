@@ -10,12 +10,12 @@ import { submitReimbursement } from '../submitReimbursement.model';
 })
 export class EmployeeServiceService {
 
-  baseUrl: string = "http://localhost:7474/";
+  baseUrl: string = "http://localhost:7474/api/";
 
   constructor(private http: HttpClient) { }
 
   getAllEmployees(): Observable<Employee[]>{
-    return this.http.get<Employee[]>(this.baseUrl+"allEmployees");
+    return this.http.get<Employee[]>(this.baseUrl+"employees");
   }
 
   getEmployee(empId: any): Observable<Employee>{
@@ -23,7 +23,7 @@ export class EmployeeServiceService {
   }
 
   updateEmployee(sentEmployee: Employee): Observable<Employee>{
-    return this.http.put<Employee>(this.baseUrl+"employee", sentEmployee);
+    return this.http.put<Employee>(this.baseUrl+"employees", sentEmployee);
   }
 
   addReimbReq(newReimb: submitReimbursement): Observable<submitReimbursement>{

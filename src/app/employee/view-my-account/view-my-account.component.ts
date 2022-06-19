@@ -20,7 +20,7 @@ export class ViewMyAccountComponent implements OnInit {
     empLastName: '',
     empUserName: '',
     empHashedPassword: '',
-    rolesPojo: {
+    roles: {
       roleId: 0,
       role: ""
     }
