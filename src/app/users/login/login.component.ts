@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  login(){
+  login(): void{
     this.userService.checkUser(this.user).subscribe((response)=>{
       console.log(response);
       if (response.empId){
@@ -51,8 +51,6 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['manager-home-display']);
         }else if(response.roles.role == "employee"){
             
-            
-            
             this.router.navigate(['employee-home-display']);
         }
       }else{
@@ -60,10 +58,9 @@ export class LoginComponent implements OnInit {
         this.invalidMessage = "Invalid Username/Password";
       }
     
-    
-    });
-    
   
-  }
+      })
+
+    }
 
 }
