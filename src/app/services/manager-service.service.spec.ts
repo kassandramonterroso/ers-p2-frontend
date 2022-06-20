@@ -13,4 +13,9 @@ describe('ManagerServiceService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+  
+  it(`should return correct url`, () => {
+    expect(service.baseUrl).toBe('http://localhost:7474');
+  });
+  
 });
