@@ -20,4 +20,11 @@ describe('ManagerHomeDisplayComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+   it(`should render title`, () => {
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('title')?.textContent).toContain('Manager Home');
+  });
+  
 });
