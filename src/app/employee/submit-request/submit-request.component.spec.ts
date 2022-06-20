@@ -20,4 +20,16 @@ describe('SubmitRequestComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it(`should be false`,() => {
+    const sR = fixture.componentInstance;
+    expect(sR.shouldDisplay).toBe(false);
+  });
+
+  it(`should render title`, () => {
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('form title')?.textContent).toContain('REQUEST FORM');
+  });
+  
 });
