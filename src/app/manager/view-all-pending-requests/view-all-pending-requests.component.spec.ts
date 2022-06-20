@@ -20,4 +20,16 @@ describe('ViewAllPendingRequestsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it(`should call loadData`, function(){
+    const vAPR = fixture.componentInstance;
+    expect(vAPR.loadData).toHaveBeenCalled();
+  });
+
+  it(`should render title`, () => {
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h2')?.textContent).toContain('View All Pending Requests');
+  });
+  
 });
