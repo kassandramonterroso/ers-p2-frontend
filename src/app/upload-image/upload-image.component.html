@@ -1,0 +1,34 @@
+<employee-home-display></employee-home-display>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-2">
+        </div>
+        <div class="col-8">
+            <h1>Reimbursement ID: {{ currentReimb.reimbId }}</h1>
+            <h1>Reimbursement AMOUNT: {{ currentReimb.reimbAmt }}</h1>
+            <div>
+                <div class="container">
+                    <form>
+                        <div class="card m-3">
+                            <div class="card-header bg-warning">Upload FORM</div>
+                            <div class="card-body">
+                                <div>
+                                    <div>
+                                        <input type="file" (change)="onFileChanged($event)">
+                                        <img [src]="imgURL" height="200" *ngIf="imgURL">
+                                    </div>
+
+                                    {{ message }}
+
+                                    <img [src]="convertedImage">
+                                </div>
+                            </div>
+                            <div class="card-footer bg-warning">
+                                <button type="button" class="btn btn-success"
+                                    (click)="onUpload()">Upload Image</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>

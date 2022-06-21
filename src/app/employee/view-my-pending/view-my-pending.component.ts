@@ -34,4 +34,8 @@ export class ViewMyPendingComponent implements OnInit {
     this.loadData();
   }
 
+  goToUploadForm(reimbid: number){
+    this.router.navigate(['upload-image', reimbid])
+  }
+
 }

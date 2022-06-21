@@ -8,6 +8,7 @@
                         <th>Reimbursement Status</th>
                         <th>Aprroved by: First Name</th>
                         <th>Approved by: Last Name</th>
+                        <th>uplaod image</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -17,6 +18,7 @@
                         <td>{{ requests.status.status }}</td>
                         <td>{{ requests.approver.empFirstName }}</td>
                         <td>{{ requests.approver.empLastName }}</td>
+                        <td><button type="button" class="btn btn-success" (click)="goToUploadForm(requests.reimbId)">Upload Image</button></td>
                     </tr>
                 </tbody>
             </table>

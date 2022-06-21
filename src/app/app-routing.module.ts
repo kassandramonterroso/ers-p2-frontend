@@ -15,6 +15,7 @@ import { ViewMyResolvedComponent } from './employee/view-my-resolved/view-my-res
 import { ViewAllResolvedRequestsComponent } from './manager/view-all-resolved-requests/view-all-resolved-requests.component';
 import { ViewAllPendingRequestsComponent } from './manager/view-all-pending-requests/view-all-pending-requests.component';
 import { LogoutComponent } from './users/logout/logout.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
 {path: 'view-all-resolved-requests', component: ViewAllResolvedRequestsComponent, canActivate:[AuthenticationGuard]},
 {path: 'view-all-pending-requests', component: ViewAllPendingRequestsComponent, canActivate:[AuthenticationGuard]},
 {path: 'logout', component: LogoutComponent},
+{path: 'upload-image/:reimbid', component: UploadImageComponent, canActivate:[AuthenticationGuard]}
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
