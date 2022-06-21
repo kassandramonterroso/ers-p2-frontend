@@ -38,7 +38,7 @@ export class ViewAllPendingRequestsComponent implements OnInit {
     let newApproveRequest: SendUpdateRequest = {
 
       reimbId: reimbId,
-      statusPojo:{
+      status:{
         statusId: 2
       },
       approver: {
@@ -59,7 +59,7 @@ export class ViewAllPendingRequestsComponent implements OnInit {
       let newRejectRequest: SendUpdateRequest = {
 
         reimbId: reimbId,
-        statusPojo:{
+        status:{
           statusId: 3
         },
         approver: {

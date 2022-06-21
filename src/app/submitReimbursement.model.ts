@@ -4,7 +4,7 @@ export interface submitReimbursement{
     requester: {
         empId: number,
     }
-    statusPojo:{
+    status:{
         statusId: number,
     }
     

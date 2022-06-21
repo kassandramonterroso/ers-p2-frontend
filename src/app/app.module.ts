@@ -17,8 +17,9 @@ import { ViewAllRequestsComponent } from './manager/view-all-requests/view-all-r
 import { LoginComponent } from './users/login/login.component';
 import { LogoutComponent } from './users/logout/logout.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { ViewAllRequestsByRequesterComponent } from './manager/view-all-requests-by-requester/view-all-requests-by-requester.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ViewAllRequestsByRequesterComponent } from './manager/view-all-requests-by-requester/view-all-requests-by-requester.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 
 
 @NgModule({
@@ -38,13 +39,16 @@ import { ViewAllRequestsByRequesterComponent } from './manager/view-all-requests
     LoginComponent,
     LogoutComponent,
     ViewAllRequestsByRequesterComponent,
+    UploadImageComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

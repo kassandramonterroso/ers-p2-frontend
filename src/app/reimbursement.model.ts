@@ -2,7 +2,7 @@ export interface Reimbursement{
     
     reimbId: number,
     reimbAmt: number,
-    statusPojo:{
+    status:{
         statusId: number,
         status: string,
     },
@@ -12,7 +12,7 @@ export interface Reimbursement{
         empLastName: string,
         empUserName: string,
         empHashedPassword: string,
-        role: {
+        roles: {
             roleId: number,
             role: string,
         }
@@ -23,7 +23,7 @@ export interface Reimbursement{
         empLastName: string,
         empUserName: string,
         empHashedPassword: string,
-        role: {
+        roles: {
             roleId: number,
             role: string,
         }

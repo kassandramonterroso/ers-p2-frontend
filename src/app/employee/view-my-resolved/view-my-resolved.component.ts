@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Reimbursement } from 'src/app/reimbursement.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { EmployeeServiceService } from 'src/app/services/employee-service.service';
@@ -17,7 +18,7 @@ export class ViewMyResolvedComponent implements OnInit {
   //initializing
   allMyResolvedRequests: Reimbursement[];
 
-  constructor(private employeeService: EmployeeServiceService, private authService: AuthService) { 
+  constructor(private employeeService: EmployeeServiceService, private authService: AuthService, private router: Router) { 
     this.allMyResolvedRequests = [];
     console.log(this.allMyResolvedRequests)
   }
@@ -31,6 +32,10 @@ export class ViewMyResolvedComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadData();
+  }
+
+  goToUploadForm(reimbid: number){
+    this.router.navigate(['upload-image', reimbid])
   }
 
 }

@@ -21,7 +21,7 @@ export class AuthService {
     empLastName: "",
     empUserName: "",
     empHashedPassword: "",
-    rolesPojo:{
+    roles:{
         roleId: 0,
         role: ""
     }

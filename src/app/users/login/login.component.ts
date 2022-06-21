@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     empLastName: '',
     empUserName: '',
     empHashedPassword: '',
-    rolesPojo: {
+    roles: {
       roleId: 0,
       role: ''
     }
@@ -30,16 +30,31 @@ export class LoginComponent implements OnInit {
   }
   login(): void{
     this.userService.checkUser(this.user).subscribe((response)=>{
-      if(response.rolesPojo.role != "" ){
+
+      console.log(response);
+      if (response.empId){
+        this.authService.storeUserInfo(response);
+        this.authService.isLoggedIn = true;
+        this.router.navigate(['employee-home-display'])
+      }else{
+        this.message = "invalid credentials"
+      }
+      if(response.roles.role != "" ){
+
       
         this.authService.storeUserInfo(response);
        
         this.authService.isLoggedIn = true;
 
-        if(response.rolesPojo.role == "manager"){
-           
+
+        if(response.roles.role == "manager"){
+            
+            
+            
             this.router.navigate(['manager-home-display']);
-        }else if(response.rolesPojo.role == "employee"){
+        }else if(response.roles.role == "employee"){
+
+
             
             this.router.navigate(['employee-home-display']);
         }
@@ -47,14 +62,10 @@ export class LoginComponent implements OnInit {
         
         this.invalidMessage = "Invalid Username/Password";
       }
-    
-    
-    }, (err)=>{
 
-     this.message = err.error.error;
-    });
-    
   
-  }
+      })
+
+    }
 
 }

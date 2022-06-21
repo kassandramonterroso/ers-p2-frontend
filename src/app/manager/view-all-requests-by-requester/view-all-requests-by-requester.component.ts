@@ -13,8 +13,7 @@ export class ViewAllRequestsByRequesterComponent implements OnInit {
   currentAllRequestsByRequester: Reimbursement[];
 
   constructor(private activatedRoute: ActivatedRoute, 
-    private managerService: ManagerServiceService,
-    private router: Router) {this.currentAllRequestsByRequester=[] }
+    private managerService: ManagerServiceService) {this.currentAllRequestsByRequester=[] }
 
   ngOnInit(): void {
     let requesterParam: any = this.activatedRoute.snapshot.paramMap.get('requesterid');
