@@ -1,8 +1,8 @@
 <manager-home-display></manager-home-display>
-<h2>View All Resolved Requests</h2>
+<h2 class="w3-center w3-text-blue">View All Resolved Requests</h2>
             <table class="table table-striped">
                 <thead>
-                    <tr>
+                    <tr class="w3-metro-dark-blue">
                         <th>Employee ID</th>
                         <th>Requested by: First Name</th>
                         <th>Requested by: Last Name</th>
@@ -14,7 +14,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let requests of allResolvedRequests">
+                    <tr *ngFor="let requests of allResolvedRequests" class="w3-hover-blue">
                         <td>{{ requests.requester.empId }}</td>
                         <td>{{ requests.requester.empFirstName }}</td>
                         <td>{{ requests.requester.empLastName }}</td>
