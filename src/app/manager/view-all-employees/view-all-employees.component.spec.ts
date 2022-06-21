@@ -20,4 +20,16 @@ describe('ViewAllEmployeesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it(`should be false`,() => {
+    const vAE = fixture.componentInstance;
+    expect(vAE.shouldDisplay).toBe(false);
+  });
+
+  it(`should render heading`, () => {
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h2')?.textContent).toContain('All Employees');
+  });
+  
 });

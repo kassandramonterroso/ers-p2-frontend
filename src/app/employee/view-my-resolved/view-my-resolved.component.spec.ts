@@ -20,4 +20,16 @@ describe('ViewMyResolvedComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it(`should call ngOnInit`, function(){
+    const vMR = fixture.componentInstance;
+    expect(vMR.ngOnInit).toHaveBeenCalled();
+  });
+
+  it(`should render title`, () => {
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h2')?.textContent).toContain('My Resolved Requests');
+  });
+  
 });

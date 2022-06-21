@@ -20,4 +20,16 @@ describe('ViewAllRequestsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it(`should call ngOnInit`, function(){
+    const vAR = fixture.componentInstance;
+    expect(vAR.ngOnInit).toHaveBeenCalled();
+  });
+
+  it(`should render title`, () => {
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h2')?.textContent).toContain('View All Requests');
+  });
+  
 });

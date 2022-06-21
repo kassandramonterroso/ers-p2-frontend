@@ -20,4 +20,16 @@ describe('UpdateMyAccountComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it(`should call ngOnInit`, function(){
+    const uMA = fixture.componentInstance;
+    expect(uMA.ngOnInit).toHaveBeenCalled();
+  });
+
+  it(`should render title`, () => {
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('form title')?.textContent).toContain('EMPLOYEE UPDATE FORM');
+  });
+  
 });

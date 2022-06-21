@@ -13,4 +13,9 @@ describe('UserServiceService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+  
+   it('should return correct url', () => {
+    expect(service.url).toBe('http://localhost:7474/');
+  });
+  
 });

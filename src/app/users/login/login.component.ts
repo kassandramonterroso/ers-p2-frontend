@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
   }
   login(): void{
     this.userService.checkUser(this.user).subscribe((response)=>{
+
       console.log(response);
       if (response.empId){
         this.authService.storeUserInfo(response);
@@ -39,10 +40,12 @@ export class LoginComponent implements OnInit {
         this.message = "invalid credentials"
       }
       if(response.roles.role != "" ){
+
       
         this.authService.storeUserInfo(response);
        
         this.authService.isLoggedIn = true;
+
 
         if(response.roles.role == "manager"){
             
@@ -50,6 +53,8 @@ export class LoginComponent implements OnInit {
             
             this.router.navigate(['manager-home-display']);
         }else if(response.roles.role == "employee"){
+
+
             
             this.router.navigate(['employee-home-display']);
         }
@@ -57,7 +62,7 @@ export class LoginComponent implements OnInit {
         
         this.invalidMessage = "Invalid Username/Password";
       }
-    
+
   
       })
 
