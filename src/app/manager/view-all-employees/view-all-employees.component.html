@@ -4,10 +4,10 @@
         <div class="col-2">
         </div>
         <div class="col-8">
-            <h2>All Employees</h2>
+            <h2 class="w3-center w3-text-blue">All Employees</h2>
             <table class="table table-striped">
                 <thead>
-                    <tr>
+                    <tr class="w3-metro-dark-blue">
                         <td>ID</td>
                         <td>FIRST NAME</td>
                         <td>LAST NAME</td>
@@ -16,7 +16,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let employee of currentAllEmployees">
+                    <tr *ngFor="let employee of currentAllEmployees" class="w3-hover-blue">
                        <td>{{ employee.empId }}</td> 
                        <td>{{ employee.empFirstName | uppercase }}</td> 
                        <td>{{ employee.empLastName | uppercase}}</td> 
