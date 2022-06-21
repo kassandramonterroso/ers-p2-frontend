@@ -27,17 +27,17 @@
                     </form>
                 </div>
             </div>
-            <h2>My Current Pending Requests</h2>
+            <h2 class="w3-center w3-text-blue">My Current Pending Requests</h2>
             <table class="table table-striped">
                 <thead>
-                    <tr>
+                    <tr class="w3-metro-dark-blue">
                         <td>Reimbursement ID</td>
                         <td>Reimbursement Amount</td>
                         <td>Reimbursement Status</td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let reimb of currentAllReimb">
+                    <tr *ngFor="let reimb of currentAllReimb" class="w3-hover-blue">
                         <td>{{ reimb.reimbId }}</td>
                         <td>{{ reimb.reimbAmt }}</td>
                         <td>{{ reimb.status.status}}</td>
