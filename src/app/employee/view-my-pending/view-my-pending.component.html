@@ -1,8 +1,8 @@
 <employee-home-display></employee-home-display>
-<h2>My pending requests</h2>
+<h2 class="w3-center w3-text-blue">My pending requests</h2>
             <table class="table table-striped">
                 <thead>
-                    <tr>
+                    <tr class="w3-metro-dark-blue">
                         <th>Reimbursement ID</th>
                         <th>Requested Reimbursement Amount</th>
                         <th>Reimbursement Status</th>
@@ -10,7 +10,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let requests of allMyPendingRequests">
+                    <tr *ngFor="let requests of allMyPendingRequests" class="w3-hover-blue">
                         <td>{{ requests.reimbId }} </td>
                         <td>{{ requests.reimbAmt }}</td>
                         <td>{{ requests.status.status }}</td>
